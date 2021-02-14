@@ -1,4 +1,4 @@
-module github.com/yb7/echoswg
+module github.com/dengsibao/echoswg
 
 go 1.15
 
