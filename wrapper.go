@@ -24,10 +24,7 @@ type internalApiGroup struct {
 }
 func (g *internalApiGroup) SetDescription(desc string) {g.description = desc}
 func (g *internalApiGroup) EchoGroup() *echo.Group {return g.echoGroup}
-type CanGroup interface {
-	Group(prefix string, middleware ...echo.MiddlewareFunc) *echo.Group
-}
-func NewApiGroup(canGroup CanGroup, tag string, prefix string) ApiGroup {
+func NewApiGroup(canGroup *echo.Group, tag string, prefix string) ApiGroup {
 	echoGroup := canGroup.Group(prefix)
 	apiGroup := &internalApiGroup{
 		tag: tag,
